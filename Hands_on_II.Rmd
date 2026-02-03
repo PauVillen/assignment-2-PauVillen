@@ -1,0 +1,132 @@
+---
+title: "my title"
+author: "Dummy Surname (dummy@mail.com)"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"      
+output:
+  html_document:
+    toc: true
+    fig_caption: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+In this practical, we will continue working with the proteomic dataset from the publication  [**Proteomic and Metabolomic Characterization of COVID-19 Patient Sera**](https://www.sciencedirect.com/science/article/pii/S0092867420306279). 
+
+Begin by loading:
+
+- The proteomic data
+
+- The patient metadata (severity, gender, age), as used in the previous exercise
+
+
+```{r}
+
+```
+
+# Exercise 1: Clustering 
+
+The goal of this exercise is to investigate whether patients naturally cluster based on their serum proteomic profiles and to assess whether these clusters are associated with disease severity, even though severity information is not used during clustering.
+
+## K-means clustering
+
+Perform k-means clustering on the proteomic data.
+
+Determine the optimal number of clusters using an appropriate method (e.g. elbow method, silhouette score).
+
+## Hierarchical clustering
+
+Perform hierarchical clustering on the same proteomic data.
+
+Choose a suitable distance metric and linkage method.
+
+Determine the optimal number of clusters.
+
+## Comparison of clustering results
+
+Compare the cluster assignments obtained from k-means and hierarchical clustering.
+
+Assess the concordance between the two methods.
+
+Evaluate whether patients group according to disease severity, despite severity not being used to define the clusters.
+
+
+
+# Exercise 2: Dimensionality reduction 
+
+In this exercise, you will apply dimensionality reduction techniques to visualize the structure of the proteomic data and identify the main sources of variance.
+
+## Principal Component Analysis (PCA)
+
+Perform PCA on the proteomic dataset.
+
+```{r}
+
+```
+
+Generate a figure similar to Figure S2, panel B, but using PCA. Color the samples by disease severity.
+
+```{r}
+
+```
+
+
+Answer the following questions:
+
+- Which proteins contribute most strongly to principal component 1 (PC1)? (top 20)  
+
+- Which proteins contribute most strongly to principal component 2 (PC2)? (top 20)  
+
+- What biological or clinical factors appear to drive the variance along PC1?   
+
+- What is driving the variance along PC2?
+
+## t-SNE
+
+Perform t-SNE on the proteomic data. Run the analysis using two different perplexity values. 
+Visualize the results, coloring samples by disease severity.
+
+```{r}
+
+```
+
+
+##  UMAP
+
+Perform UMAP on the proteomic data. Visualize the results, coloring samples by disease severity.
+
+```{r}
+
+```
+
+
+# Heatmap visualization
+
+From Table S6 (Differentially Expressed Proteins and Metabolites), select the differentially expressed proteins between Severe and Healthy patients. Generate a heatmap of these proteins.
+
+Add annotation tracks for:   
+
+  - Group   
+  
+  - Gender  
+   
+  - Age  
+
+```{r}
+
+```
+
+
+Comment on any visible patterns or associations between protein expression and the annotations.
+
+Are these proteins among the top contributors to PC1 or PC2? Use the top 50 proteins contributing to PC1 and PC2 to support your interpretation.
+
+
+# session info {.unnumbered}
+
+```{r, results='asis',  echo=FALSE, message=FALSE }
+sessionInfo()
+```
