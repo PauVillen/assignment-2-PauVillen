@@ -25,7 +25,9 @@ jobs:
       - name: Check Hands_on_II.Rmd
         run: if [ -e Hands_on_II.Rmd ] ; then exit 0 ; else { echo missing Hands_on_II.Rmd ; exit 1 ; } ; fi
       - name: Install packages
-        run: Rscript -e 'install.packages(c("rmarkdown", "readxl", "dplyr", "ggplot2", "tibble", "cluster", "factoextra", "ggpubr", "dendextend", "Rtsne", "umap", "RColorBrewer", "ComplexHeatmap", "circlize"))'
+        run: |
+          Rscript -e 'install.packages(c("rmarkdown", "readxl", "dplyr", "ggplot2", "tibble", "cluster", "factoextra", "ggpubr", "dendextend", "Rtsne", "umap", "RColorBrewer", "BiocManager"))'
+          Rscript -e 'BiocManager::install(c("ComplexHeatmap", "circlize"), ask = FALSE, update = FALSE)'
       - name: Render Hands_on_II.html
         run: Rscript -e 'rmarkdown::render("Hands_on_II.Rmd")'
       - name: Check Hands_on_II.html
